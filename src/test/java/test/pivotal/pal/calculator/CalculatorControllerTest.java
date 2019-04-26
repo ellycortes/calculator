@@ -29,6 +29,15 @@ public class CalculatorControllerTest {
     }
 
     @Test
+    public void testAddInvalid() {
+        int expected = 3;
+        Calculator calc = new Calculator(1, 2);
+        ResponseEntity response = this.controller.add(calc);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(expected);
+    }
+
+    @Test
     public void testSub() {
         int expected = 8;
         Calculator calc = new Calculator(10, 2);
